@@ -1,0 +1,46 @@
+@charset 'UTF-8';
+
+// == Header Variants == //
+
+$default-version: version-one;
+
+@mixin header($header-version: $default-version) {
+  @if $header-version == version-one {
+    @include grid-row(start);
+
+    &.version-one {
+      @include flex-x(justify-content, space-between);
+
+      .branding {
+        @include flex();
+        @include flex-x(align-items, center);
+        height: 100%;
+      }
+
+      .nav-bar {
+        @include flex();
+        @include flex-x(justify-content, center);
+
+        .nav {
+          @include flex();
+          @include flex-x(flex-direction, row);
+          list-style: none;
+
+          .nav-item {
+            font-family: 'Montserrat';
+            font-weight: 900;
+            font-style: normal;
+            text-transform: uppercase;
+            margin-right: 1rem;
+          }
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+
+    }
+}
+
+}

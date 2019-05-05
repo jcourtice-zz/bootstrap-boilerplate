@@ -1,0 +1,12 @@
+body {
+  background-color: $light-blue;
+}
+.header-wrapper {
+  width: 100%;
+  background-color: white;
+  @include flex();
+  @include flex-x(justify-content, center);
+}
+.header {
+  @include header();
+}

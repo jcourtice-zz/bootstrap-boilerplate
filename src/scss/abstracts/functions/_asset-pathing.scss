@@ -1,0 +1,28 @@
+@charset 'UTF-8';
+
+/// Asset Pathing function
+/// Usage:
+/// asset-path("icon", "my-icon/test.png") = ./project/files/images/icons/my-icon-test.png
+/// asset-path("doc", "xyz.doc") = ./project/files/xyz.doc
+
+@function asset-path($type, $file-name) {
+
+  // $type and $file-name must both be strings: ""
+  $prefix: null;
+
+  ///themes/custom/elmwood/
+  // Replace the following prefixes with the paths specific to your project and add or remove conditions (if / else statements) as necessary.
+  @if $type == image {
+    $prefix: '/themes/custom/elmwood/img/';
+  } @else if $type == icon {
+    $prefix: '/themes/custom/elmwood/img/icons/';
+  } @else if $type == font {
+    $prefix: '/themes/custom/elmwood/fonts/';
+  } @else if $type == bg {
+    $prefix: '/themes/custom/elmwood/img/bg-images/';
+  } @else {
+    $prefix: '././../files/';
+  }
+
+  @return $prefix + $file-name;
+}
